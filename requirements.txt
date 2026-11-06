@@ -1,0 +1,20 @@
+# Core
+PyYAML==6.0.2
+python-dotenv==1.0.1
+requests==2.32.3
+
+# Free text-to-speech (voice-over audio)
+gTTS==2.5.3
+
+# Free local video assembly (images + audio -> mp4)
+moviepy==1.0.3
+Pillow==10.4.0
+numpy==1.26.4
+
+# YouTube Data API (free to use; Google's own quota is free up to 10,000 units/day)
+google-api-python-client==2.149.0
+google-auth==2.35.0
+google-auth-oauthlib==1.2.1
+
+# Testing
+pytest==8.3.3
