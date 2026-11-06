@@ -20,20 +20,20 @@ permissions:
   contents: write   # needed so the workflow can commit generated scripts/metadata back to the repo
 
 jobs:
-  generate:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-     
-           env:
-      CONTENT_ENGINE: template
-      ENABLE_VIDEO_ASSEMBLY: "true"
-      ENABLE_IMAGE_GENERATION: "true"
-      ENABLE_VOICEOVER_AUDIO: "true"
-      ENABLE_UPLOAD: ${{ github.event_name == 'schedule' || github.event.inputs.enable_upload == 'true' }}
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      generate:
+      runs-on: ubuntu-latest
+      timeout-minutes: 30
+
+      env:
+        CONTENT_ENGINE: template
+        ENABLE_VIDEO_ASSEMBLY: "true"
+        ENABLE_IMAGE_GENERATION: "true"
+        ENABLE_VOICEOVER_AUDIO: "true"
+        ENABLE_UPLOAD: ${{ github.event_name == 'schedule' || github.event.inputs.enable_upload == 'true' }}
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+        YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+        YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
