@@ -32,7 +32,7 @@ jobs:
       ENABLE_VOICEOVER_AUDIO: "true"
       # Upload stays off unless you set the enable_upload input to "true"
       # AND have added the three YOUTUBE_* secrets below (see SETUP.md).
-      ENABLE_UPLOAD: ${{ github.event.inputs.enable_upload || 'false' }}
+     ENABLE_UPLOAD: ${{ github.event_name == 'schedule' || github.event.inputs.enable_upload == 'true' }}
       # Optional paid upgrade — only used if CONTENT_ENGINE=anthropic is also set.
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       # Required only once upload is turned on (see SETUP.md to generate these).
