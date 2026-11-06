@@ -23,8 +23,8 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-
-   env:
+     
+    env:  
       CONTENT_ENGINE: template
       ENABLE_VIDEO_ASSEMBLY: "true"
       ENABLE_IMAGE_GENERATION: "true"
