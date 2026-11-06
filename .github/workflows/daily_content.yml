@@ -53,9 +53,9 @@ jobs:
       - name: Run daily content pipeline
         run: |
           if [ -n "${{ github.event.inputs.category }}" ]; then
-            python -m src.main --category "${{ github.event.inputs.category }}"
+            python main.py --category "${{ github.event.inputs.category }}"
           else
-            python -m src.main
+            python main.py
           fi
 
       - name: Commit generated content back to the repo
