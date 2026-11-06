@@ -24,22 +24,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
-    env:
-      # --- Free by default. Nothing below is required for the pipeline to run. ---
-      CONTENT_ENGINE: template          # template | ollama | anthropic
+   env:
+      CONTENT_ENGINE: template
       ENABLE_VIDEO_ASSEMBLY: "true"
       ENABLE_IMAGE_GENERATION: "true"
       ENABLE_VOICEOVER_AUDIO: "true"
-      # Upload stays off unless you set the enable_upload input to "true"
-      # AND have added the three YOUTUBE_* secrets below (see SETUP.md).
-     ENABLE_UPLOAD: ${{ github.event_name == 'schedule' || github.event.inputs.enable_upload == 'true' }}
-      # Optional paid upgrade — only used if CONTENT_ENGINE=anthropic is also set.
+      ENABLE_UPLOAD: ${{ github.event_name == 'schedule' || github.event.inputs.enable_upload == 'true' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      # Required only once upload is turned on (see SETUP.md to generate these).
       YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
       YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
       YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
