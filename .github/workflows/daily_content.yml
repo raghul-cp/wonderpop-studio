@@ -18,9 +18,7 @@ on:
 
 permissions:
   contents: write   # needed so the workflow can commit generated scripts/metadata back to the repo
-
 jobs:
-  jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
