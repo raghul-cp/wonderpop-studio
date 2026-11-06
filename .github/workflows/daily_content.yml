@@ -1,7 +1,6 @@
+
 name: WonderPop Daily Content
 
-# Runs once a day and on manual trigger. The cron below is in UTC.
-# 01:30 UTC ≈ 07:00 IST — adjust to whenever you want fresh content ready.
 on:
   schedule:
     - cron: "30 1 * * *"
@@ -17,7 +16,8 @@ on:
         default: "false"
 
 permissions:
-  contents: write   # needed so the workflow can commit generated scripts/metadata back to the repo
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
-      - name: Install ffmpeg (required for video assembly)
+      - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Install Python dependencies
@@ -66,7 +66,7 @@ jobs:
           git diff --cached --quiet || git commit -m "Daily content: $(date -u +'%Y-%m-%d')"
           git push
 
-      - name: Upload video/audio as a workflow artifact (kept 7 days)
+      - name: Upload video/audio as a workflow artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
