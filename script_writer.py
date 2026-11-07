@@ -22,7 +22,7 @@ Produces a dict:
 }
 """
 
-from prompts import templates as T
+import templates as T
 from src import llm_client
 
 
