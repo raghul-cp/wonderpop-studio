@@ -15,7 +15,7 @@ from pathlib import Path
 
 import requests
 
-from prompts import templates as T
+import templates as T
 
 POLLINATIONS_BASE = "https://image.pollinations.ai/prompt/"
 
