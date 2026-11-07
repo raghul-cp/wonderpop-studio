@@ -22,8 +22,8 @@ import random
 import uuid
 from datetime import date
 
-from prompts import templates as T
-from src import llm_client
+import templates as T
+import llm_client
 
 
 def generate_daily_idea(cfg: dict, category_id: str = None) -> dict:
