@@ -16,7 +16,11 @@ import argparse
 import sys
 from pathlib import Path
 
-from src import idea_generator, prompt_generator, script_writer, seo_generator, voiceover_generator
+import idea_generator
+import prompt_generator
+import script_writer
+import seo_generator
+import voiceover_generator
 from src.config_loader import data_dir, get_config
 from src.metadata_store import save_daily_package, update_upload_status
 
