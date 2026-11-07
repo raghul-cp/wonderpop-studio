@@ -2,7 +2,7 @@
 Step 5 of the pipeline: SEO-friendly titles, description, tags, hashtags.
 """
 
-from prompts import templates as T
+import templates as T
 from src import llm_client
 
 
